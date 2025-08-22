@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Message Builder</title>
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="title">Create Your Automation Message</h1>
+    <p class="sub">Write a custom message, or let AI draft one for you. You can also start from a template.</p>
+
+    <div class="meta">
+      <span class="pill">📅 <strong id="modeLabel">Calendar</strong> mode</span>
+      <span class="pill">⌛ Scheduled sends</span>
+      <span class="pill">🔁 Personalization tags supported</span>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Mode">
+      <button class="tab active" role="tab" aria-selected="true" id="tab-calendar">📅 Calendar</button>
+      <button class="tab" role="tab" aria-selected="false" id="tab-timer">⏱ Timer</button>
+    </div>
+
+    <section class="card" aria-labelledby="composer">
+      <label for="message" id="composer" style="display:block; font-weight:700; margin-bottom:8px;">Message</label>
+      <textarea id="message" maxlength="500" placeholder="Write your message here… or click ✨ AI Suggest to generate one. You can use variables like {{name}} or {{date}}."></textarea>
+      <div class="hint">
+        <span>Tip: Use <code>{{name}}</code>, <code>{{date}}</code>, <code>{{company}}</code> to personalize.</span>
+        <span class="counter ok" id="counter">0 / 500</span>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button class="btn primary" id="aiBtn">⚡ AI Suggest</button>
+
+      <div class="popover">
+        <button class="btn ghost" id="tplBtn">📑 Use Templates</button>
+        <div class="menu" id="tplMenu" aria-label="Templates">
+          <div class="tpl-list">
+            <div class="tpl" data-fill="Hi {{name}}, this is a quick reminder for your appointment on {{date}}. Reply YES to confirm or NO to reschedule.">
+              <h4>Appointment Reminder</h4>
+              <p>Friendly nudge with confirm/reschedule CTA.</p>
+            </div>
+            <div class="tpl" data-fill="Hey {{name}}! 🎉 Your order #{{orderId}} has shipped. Track it here: {{trackingLink}}. Thanks for choosing {{company}}.">
+              <h4>Order Shipped</h4>
+              <p>Shipping update with tracking link.</p>
+            </div>
+            <div class="tpl" data-fill="Hi {{name}}, we noticed you haven’t finished setting up your account. It takes less than 2 minutes. Continue here: {{setupLink}}.">
+              <h4>Onboarding Nudge</h4>
+              <p>Get users to complete setup.</p>
+            </div>
+            <div class="tpl" data-fill="Hi {{name}}, quick check-in: do you need help with {{product}}? Reply HELP for support or OK if all good.">
+              <h4>Customer Check-in</h4>
+              <p>Lightweight support touchpoint.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn ghost" id="clearBtn">🧹 Clear</button>
+    </div>
+
+    <p class="footer">Design by ZUSTNEXT · Keyboard: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>I</kbd> for AI Suggest</p>
+  </main>
+</body>
+</html>
