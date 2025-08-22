@@ -1,0 +1,155 @@
+:root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --text:#1f2a37;
+      --muted:#6b7280;
+      --primary:#0b4a74;     /* deep navy */
+      --primary-600:#0a3f63;
+      --accent:#ff7a00;      /* orange accent */
+      --stroke:#e5e7eb;
+      --radius:16px;
+      --shadow:0 8px 30px rgba(2, 6, 23, .08);
+      --focus:0 0 0 3px rgba(11,74,116,.18);
+    }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+  background:var(--bg);
+  display:grid;
+  place-items:center;
+  padding:24px;
+  }
+.wrap{
+  width:min(960px, 100%);
+}
+.title{
+  font-weight:800;
+  letter-spacing:.2px;
+  font-size:clamp(20px, 3vw, 28px);
+  text-align:center;
+  margin:0 0 18px;
+}
+.sub{
+  text-align:center;
+  color:var(--muted);
+  margin:-6px 0 22px;
+  font-size:14px;
+}
+
+/* Tabs */
+.tabs{
+  display:flex; gap:10px; justify-content:center; margin-bottom:14px;
+}
+.tab{
+  border:1px solid var(--stroke);
+  background:#fff; color:#374151;
+  padding:10px 16px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.2s ease;
+  display:flex; align-items:center; gap:8px;
+  user-select:none;
+}
+.tab:hover{ background:#f3f4f6 }
+.tab.active{
+  background:var(--primary);
+  color:#fff; border-color:var(--primary);
+  box-shadow:0 6px 16px rgba(11,74,116,.25);
+}
+
+/* Card */
+.card{
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:calc(var(--radius) + 4px);
+  box-shadow:var(--shadow);
+  padding:18px;
+  margin:10px auto;
+  width:min(760px, 96%);
+}
+
+textarea{
+  width:100%;
+  height:140px;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  padding:14px 12px;
+  resize:vertical;
+  line-height:1.45;
+  outline:none;
+  transition:.15s ease;
+  font-size:15px;
+  background:#fcfdff;
+}
+textarea:focus{
+  border-color:var(--primary);
+  box-shadow:var(--focus);
+}
+
+.hint{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:8px; font-size:13px; color:var(--muted);
+}
+.counter.ok{ color:var(--muted) }
+.counter.warn{ color:#b45309 }
+.counter.max{ color:#b91c1c; font-weight:600 }
+
+    /* Buttons */
+.actions{ display:flex; gap:12px; justify-content:center; margin-top:14px }
+.btn{
+  border-radius:14px; padding:12px 18px; font-weight:600;
+  border:1px solid transparent; cursor:pointer; transition:.2s ease;
+  display:inline-flex; align-items:center; gap:10px; user-select:none;
+}
+.btn:focus-visible{ outline:none; box-shadow:var(--focus) }
+.btn.primary{
+background:var(--primary); color:#fff;
+  box-shadow:0 8px 18px rgba(11,74,116,.25);
+}
+.btn.primary:hover{ background:var(--primary-600) }
+.btn.ghost{
+  background:#fff; color:#111827; border-color:#d1d5db;
+}
+.btn.ghost:hover{ background:#f9fafb }
+
+    /* Templates popover */
+.popover{
+  position:relative; display:inline-block;
+}
+.menu{
+  position:absolute; top:46px; left:50%; transform:translateX(-50%);
+  width: min(560px, 92vw);
+  background:#fff; border:1px solid var(--stroke);
+  border-radius:14px; box-shadow:var(--shadow);
+  padding:10px; display:none; z-index:10;
+}
+.menu.open{ display:block }
+.tpl-list{ display:grid; grid-template-columns:1fr 1fr; gap:8px }
+.tpl{
+  border:1px dashed #d1d5db; border-radius:12px; padding:10px;
+  background:#fbfdff; cursor:pointer; transition:.15s;
+}
+.tpl:hover{ background:#f3f7fb; border-style:solid }
+.tpl h4{ margin:0 0 6px; font-size:14px }
+.tpl p{ margin:0; font-size:13px; color:#4b5563 }
+@media (max-width:640px){
+.tpl-list{ grid-template-columns:1fr }
+}
+
+    /* Helper row under tabs */
+.meta{
+  display:flex; gap:10px; justify-content:center; align-items:center;
+  color:#374151; font-size:13px; margin-bottom:4px;
+}
+.pill{
+  background:#eef6fb; color:#0b4a74; border:1px solid #d7ebf8;
+  padding:6px 10px; border-radius:999px; display:inline-flex; gap:6px; align-items:center;
+}
+
+    /* Footer */
+.footer{
+  text-align:center; color:#98a2b3; font-size:12px; margin-top:16px;
+}
