@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Templates</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-right: 20px;
+    }
+
+    .logo {
+      background: #2b6cb0;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filters h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .filters p {
+      color: #2b6cb0;
+      cursor: pointer;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .filters ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .filters li {
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filters li:hover {
+      color: #2b6cb0;
+      transform: translateX(5px);
+    }
+
+    .filters input {
+      margin-right: 8px;
+    }
+
+    /* Main Content */
+    .main {
+      flex: 1;
+    }
+
+    .main h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #2b6cb0;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">LOGO</div>
+      <div class="filters">
+        <h3>Filters</h3>
+        <p>Clear filters</p>
+        <ul>
+          <li>📩 Onboarding Emails</li>
+          <li>⭐ Milestone Emails</li>
+          <li>🤝 Lead Nurturing Emails</li>
+          <li>🎉 Event Emails</li>
+          <li>🔄 Re-engagement Emails</li>
+          <li>📌 Follow-up Emails</li>
+          <li>👋 Welcome Emails</li>
+          <li>🏷️ Promotions Emails</li>
+          <li>📝 Survey/Feedback Emails</li>
+          <li>💳 Transactional Emails</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <h2>Pre-Designed Email Templates</h2>
+      <div class="cards">
+        <div class="card">
+          <p><strong>Subject:</strong> Milestone Reached [Project Name] - Phase [Number] Complete</p>
+          <p>Hi Team, I’m thrilled to announce that we have officially completed Phase [Number] of the [Project Name] project...</p>
+        </div>
+        <div class="card">
+          <p><strong>Subject:</strong> We Did It! Thanks for Hitting [Specific Milestone]</p>
+          <p>Thanks to the sheer commitment of the team, we’ve successfully completed [Milestone Name]. Your hard work has been incredible...</p>
+        </div>
+        <div class="card">
+          <p><strong>Subject:</strong> Milestone Reached [Project Name] - Phase [Number] Complete</p>
+          <p>Hi Team, I’m thrilled to announce that we have officially completed Phase [Number] of the [Project Name] project...</p>
+        </div>
+        <div class="card">
+          <p><strong>Subject:</strong> Milestone Reached [Project Name] - Phase [Number] Complete</p>
+          <p>Hi Team, I’m thrilled to announce that we have officially completed Phase [Number] of the [Project Name] project...</p>
+        </div>
+        <div class="card">
+          <p><strong>Subject:</strong> Milestone Reached [Project Name] - Phase [Number] Complete</p>
+          <p>Hi Team, I’m thrilled to announce that we have officially completed Phase [Number] of the [Project Name] project...</p>
+        </div>
+        <div class="card">
+          <p><strong>Subject:</strong> Milestone Reached [Project Name] - Phase [Number] Complete</p>
+          <p>Hi Team, I’m thrilled to announce that we have officially completed Phase [Number] of the [Project Name] project...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
