@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat + File Upload</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #2c3e50;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    nav .auth-buttons button {
+      margin-left: 10px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    nav .auth-buttons .signup {
+      background-color: #e67e22;
+      color: #fff;
+    }
+    nav .auth-buttons .signin {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    /* Main layout */
+    .container {
+      flex: 1;
+      display: flex;
+      height: calc(100vh - 60px);
+    }
+
+    /* Chat section */
+    .chat-section {
+      flex: 3;
+      border-right: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+    }
+    .chat-box {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background-color: #f8f9fa;
+    }
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+    }
+    .chat-input button {
+      padding: 10px 15px;
+      border: none;
+      background: #2ecc71;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* File upload section */
+    .upload-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ecf0f1;
+    }
+    .drop-area {
+      border: 2px dashed #7f8c8d;
+      border-radius: 10px;
+      padding: 40px;
+      text-align: center;
+      background-color: #fff;
+      width: 80%;
+      transition: 0.3s;
+    }
+    .drop-area.dragover {
+      background-color: #dff9fb;
+      border-color: #0984e3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">MyApp</div>
+    <div class="auth-buttons">
+      <button class="signup">Sign Up</button>
+      <button class="signin">Sign In</button>
+    </div>
+  </nav>
+
+  <!-- Main container -->
+  <div class="container">
+    <!-- Chat Section -->
+    <div class="chat-section">
+      <div class="chat-box" id="chat-box">
+        <p><b>Bot:</b> Welcome to the chat!</p>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <!-- File Upload Section -->
+    <div class="upload-section">
+      <div class="drop-area" id="drop-area">
+        <h3>Drag & Drop Excel File</h3>
+        <p>or click to upload</p>
+        <input type="file" id="fileElem" accept=".xls,.xlsx" style="display:none;">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Chat Functionality
+    function sendMessage() {
+      const input = document.getElementById("chat-input");
+      const chatBox = document.getElementById("chat-box");
+
+      if (input.value.trim() !== "") {
+        const msg = document.createElement("p");
+        msg.innerHTML = "<b>You:</b> " + input.value;
+        chatBox.appendChild(msg);
+        input.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    }
+
+    // File Upload Drag & Drop
+    const dropArea = document.getElementById("drop-area");
+    const fileElem = document.getElementById("fileElem");
+
+    dropArea.addEventListener("click", () => fileElem.click());
+
+    dropArea.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropArea.classList.add("dragover");
+    });
+
+    dropArea.addEventListener("dragleave", () => {
+      dropArea.classList.remove("dragover");
+    });
+
+    dropArea.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropArea.classList.remove("dragover");
+      const files = e.dataTransfer.files;
+      handleFiles(files);
+    });
+
+    fileElem.addEventListener("change", () => {
+      handleFiles(fileElem.files);
+    });
+
+    function handleFiles(files) {
+      [...files].forEach((file) => {
+        if (file.name.endsWith(".xls") || file.name.endsWith(".xlsx")) {
+          alert("Uploaded: " + file.name);
+        } else {
+          alert("Please upload an Excel file (.xls or .xlsx)");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
