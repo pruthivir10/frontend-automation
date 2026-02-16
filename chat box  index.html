@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanilla JS Calendar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="logo">📧 Email Automation</div>
+
+    <!-- Text Editor -->
+    <div class="text-editor" contenteditable="true" id="editor">
+      Write your email content here...
+    </div>
+
+    <!-- File Upload -->
+    <div class="upload-box" id="uploadBox">
+      <p>📂 Drag & drop file here or click to upload</p>
+      <input type="file" id="fileInput" multiple style="display:none;">
+      <div class="file-list" id="fileList"></div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <button class="done-btn" id="doneBtn">✅ Done</button>
+      <button class="ai-btn" id="aiBtn">🤖 AI Suggest</button>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">Generating AI suggestions...</div>
+  </div>
+<script src="script.js"></script>
+</body>
